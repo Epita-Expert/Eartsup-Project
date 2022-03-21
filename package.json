@@ -1,0 +1,16 @@
+{
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --config ./webpack.dev.js",
+    "build": "webpack --config ./webpack.prod.js",
+    "start": "serve -s dist"
+  },
+  "dependencies": {
+    "@types/three": "^0.138.0",
+    "three": "^0.138.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
