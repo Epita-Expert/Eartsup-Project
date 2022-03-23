@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1596,30 +1596,16 @@ GameObject:
   m_Component:
   - component: {fileID: 415888765}
   - component: {fileID: 415888764}
-  - component: {fileID: 415888763}
-  - component: {fileID: 415888762}
   - component: {fileID: 415888766}
+  - component: {fileID: 415888762}
   m_Layer: 0
   m_Name: Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
---- !u!65 &415888762
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 415888761}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &415888763
+--- !u!23 &415888762
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1627,7 +1613,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415888761}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 3
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1646,7 +1632,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
+  m_ReceiveGI: 2
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1675,13 +1661,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415888761}
-  m_LocalRotation: {x: 0.9278032, y: -0.33797148, z: -0.088405564, w: -0.1309231}
-  m_LocalPosition: {x: -0.08, y: 1, z: -0.52}
+  m_LocalRotation: {x: 0.39712062, y: -0.048875198, z: -0.26878533, w: -0.8761626}
+  m_LocalPosition: {x: -0.08, y: 1, z: 1.805}
   m_LocalScale: {x: 0.46, y: 0.46, z: 0.46}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -17.62, y: 184.546, z: 219.325}
+  m_LocalEulerAnglesHint: {x: -46.233, y: 349.35, z: 38.666}
 --- !u!114 &415888766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2155,6 +2141,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2201,7 +2188,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2227,6 +2214,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -0.281, z: 0}
+--- !u!220 &963194229
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1, y: 1, z: 1}
+  - {x: -1, y: 1, z: -1}
+  - {x: -1, y: -1, z: 1}
+  - {x: -1, y: -1, z: -1}
+  - {x: 1.0929321, y: -1, z: 14.704797}
+  - {x: 1.0929321, y: 0.6839689, z: 14.704797}
+  - {x: -1.3730682, y: 0.6839689, z: 14.71689}
+  - {x: 0.082144074, y: 0.6839689, z: 14.709754}
+  - {x: -1.3730682, y: -1, z: 14.71689}
+  - {x: 0.082144074, y: -1, z: 14.709754}
+  - {x: 0.04883873, y: 0.6839689, z: 7.9190364}
+  - {x: -2.2171142, y: -1, z: 9.521665}
+  - {x: -2.2171142, y: 0.6839689, z: 9.521665}
+  - {x: 0.06360503, y: -1.5894063, z: 10.92982}
+  - {x: 1.3025377, y: 0.6839689, z: 9.504402}
+  - {x: 1.3025377, y: -1, z: 9.504402}
+  - {x: 0.04883873, y: -1, z: 7.9190364}
+  - {x: 0.06360503, y: 1.3173084, z: 10.92982}
+  - {x: 2.0308645, y: 0.6839689, z: 12.1672735}
+  - {x: 0.07300663, y: 1.1645672, z: 12.846681}
+  - {x: -3.0351384, y: 0.6839689, z: 12.192119}
+  - {x: -3.0351384, y: -1, z: 12.192119}
+  - {x: 0.06972168, y: -1, z: 12.176891}
+  - {x: 2.0308645, y: -1, z: 12.1672735}
+  m_Dering: 1
 --- !u!1 &1103323799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2378,12 +2403,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Echap: Quitter
-
-    Clique Gauche: changer la couleur du cube
-
-    clique
-    Droit: Lancer une animation [Cube]'
+  m_Text: 
 --- !u!222 &1202565256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2682,14 +2702,14 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 1, g: 0.5506037, b: 0, a: 1}
+  m_Intensity: 1.67
   m_Range: 10
   m_SpotAngle: 99.5
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 1
@@ -2717,7 +2737,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
