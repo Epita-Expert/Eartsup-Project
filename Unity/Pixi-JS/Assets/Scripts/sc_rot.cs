@@ -4,29 +4,46 @@ using UnityEngine;
 
 public class sc_rot : MonoBehaviour
 {
-    Vector3 v3_startray;
-    Vector3 v3_endray;
+    [SerializeField] float rotationSpeed = 100f;
+    Rigidbody rb;
+    bool dragging = false;
 
-   
 
-    // Update is called once per frame
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();    
+    }
+
+    void OnMouseDrag()
+    {
+        dragging = true;
+    }
+
     void Update()
     {
-        v3_startray = Input.mousePosition;
-
-        if(Input.GetKeyDown(0))
+    if (Input.GetMouseButtonUp(0))
         {
-            Ray r_ray;
-            RaycastHit h_hit;
-
-            
+            dragging = false;
         }
+        
+    }
 
-        if(Input.GetMouseButton(0))
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
+        if (dragging)
         {
-
-
-
+            
+            float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
+            float y = Input.GetAxis("Mouse Y") * rotationSpeed * Time.fixedDeltaTime;
+            rb.AddTorque(Vector3.down * x);
+            rb.AddTorque(Vector3.right * y);
+        }
+        else
+        {
+            
+            rb.velocity = Vector3.zero;
         }
     }
 }

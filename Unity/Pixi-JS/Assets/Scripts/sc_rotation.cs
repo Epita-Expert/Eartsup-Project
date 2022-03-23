@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sc_rotate : MonoBehaviour
+public class sc_rotation : MonoBehaviour
 {
     Vector3 v3_prevpos = Vector3.zero;
     Vector3 v3_PosDelta = Vector3.zero;
@@ -10,14 +10,14 @@ public class sc_rotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetMouseButton(0))
+
+        if (Input.GetMouseButton(0))
         {
             v3_PosDelta = Input.mousePosition - v3_prevpos;
-            if(Vector3.Dot(transform.up, Vector3.up) >= 0)
+            if (Vector3.Dot(transform.up, Vector3.up) >= 0)
             {
-                transform.Rotate(transform.up, -Vector3.Dot(v3_PosDelta,Camera.main.transform.right), Space.World);
-                
+                transform.Rotate(transform.up, -Vector3.Dot(v3_PosDelta, Camera.main.transform.right), Space.World);
+
             }
             else
             {
