@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class sc_rot : MonoBehaviour
 {
+    [Header("Shape")]
     [SerializeField] float rotationSpeed = 100f;
-    Rigidbody rb;
+    Rigidbody rb_my;
     bool dragging = false;
+    bool b_original;
+    public GameObject go_original;
+    
 
+    [Space,Header("Verify")]
+    public GameObject go_verify;
+    public Rigidbody rb_shadow;
+    public bool b_Verify;
 
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();    
+        rb_my = GetComponent<Rigidbody>();
     }
+
 
     void OnMouseDrag()
     {
@@ -32,18 +41,18 @@ public class sc_rot : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (dragging)
+        if (dragging && !b_Verify)
         {
-            
             float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
             float y = Input.GetAxis("Mouse Y") * rotationSpeed * Time.fixedDeltaTime;
-            rb.AddTorque(Vector3.down * x);
-            rb.AddTorque(Vector3.right * y);
+            rb_my.AddTorque(Vector3.down * x);
+            rb_my.AddTorque(Vector3.right * y);
         }
-        else
+
+        if(dragging && b_Verify)
         {
-            
-            rb.velocity = Vector3.zero;
+            print(this.gameObject.name);
+            gameObject.transform.rotation = go_verify.transform.rotation;
         }
     }
 }
