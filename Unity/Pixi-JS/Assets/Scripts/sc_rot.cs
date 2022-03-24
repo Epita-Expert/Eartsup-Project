@@ -17,9 +17,23 @@ public class sc_rot : MonoBehaviour
     public Rigidbody rb_shadow;
     public bool b_Verify;
 
+    [Space,Header("Probes")]
+    [Space]
+
+    public Transform tr_verifiShadowForward;
+    public Transform tr_verifiShadowBackward;
+
+    [Space]
+    public Transform tr_verifiForward;
+    public Transform tr_verifiBackward;
+
     private void Start()
     {
         rb_my = GetComponent<Rigidbody>();
+        if(b_Verify)
+        {
+            rb_shadow = GetComponent<Rigidbody>();
+        }
     }
 
 
@@ -29,12 +43,11 @@ public class sc_rot : MonoBehaviour
     }
 
     void Update()
-    {
-    if (Input.GetMouseButtonUp(0))
+    { 
+        if (Input.GetMouseButtonUp(0))
         {
             dragging = false;
         }
-        
     }
 
     // Update is called once per frame
@@ -43,16 +56,14 @@ public class sc_rot : MonoBehaviour
 
         if (dragging && !b_Verify)
         {
+            //print(("Dragg + Virify false    ") + this.gameObject.name);
+
             float x = Input.GetAxis("Mouse X") * rotationSpeed * Time.fixedDeltaTime;
             float y = Input.GetAxis("Mouse Y") * rotationSpeed * Time.fixedDeltaTime;
             rb_my.AddTorque(Vector3.down * x);
             rb_my.AddTorque(Vector3.right * y);
-        }
-
-        if(dragging && b_Verify)
-        {
-            print(this.gameObject.name);
-            gameObject.transform.rotation = go_verify.transform.rotation;
+            rb_shadow.AddTorque(Vector3.down * -x);
+            rb_shadow.AddTorque(Vector3.right * -y);
         }
     }
 }
