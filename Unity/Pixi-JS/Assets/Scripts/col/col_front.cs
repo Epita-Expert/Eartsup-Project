@@ -8,13 +8,13 @@ public class col_front : MonoBehaviour
 
     public sc_WinCondition sc_wincondition;
 
-
-
     void OnTriggerEnter(Collider collided)
     {
         if (collided.tag == "Col_Arriere")
-        { // this "if" statement seems to be the problem
-            sc_wincondition.b_win = true;
+        { 
+            print(collided.gameObject.name);
+            sc_wincondition.b_next = true;
+            Destroy(collided.gameObject);
         }
     }
 
@@ -22,7 +22,8 @@ public class col_front : MonoBehaviour
     {
         if (collisionInfo.collider.tag == "Col_Arriere")
         {
-            sc_wincondition.b_win = true;
+            print("collision");
+            sc_wincondition.b_next = true;
         }
     }
 }
