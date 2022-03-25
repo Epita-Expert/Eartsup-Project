@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.Audio;
 
 public class sc_WinCondition : MonoBehaviour
 {
@@ -29,6 +30,8 @@ public class sc_WinCondition : MonoBehaviour
     public GameObject go_dirieable;
     public GameObject go_loco;
     public GameObject go_robot;
+
+    public AudioSource aud_vic;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +89,7 @@ public class sc_WinCondition : MonoBehaviour
     IEnumerator nextEnigme()
     {
         i_numEnigm++;
+        aud_vic.Play();
         print(i_numEnigm);
         anim_manager.SetInteger("i_num", i_numEnigm);
         b_next = false;
