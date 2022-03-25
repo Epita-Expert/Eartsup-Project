@@ -17,15 +17,8 @@ public class sc_rot : MonoBehaviour
     public Rigidbody rb_shadow;
     public bool b_Verify;
 
-    [Space,Header("Probes")]
     [Space]
-
-    public Transform tr_verifiShadowForward;
-    public Transform tr_verifiShadowBackward;
-
-    [Space]
-    public Transform tr_verifiForward;
-    public Transform tr_verifiBackward;
+    public bool b_control;
 
     private void Start()
     {
@@ -54,7 +47,7 @@ public class sc_rot : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (dragging && !b_Verify)
+        if (dragging && !b_Verify && b_control)
         {
             //print(("Dragg + Virify false    ") + this.gameObject.name);
 
@@ -65,5 +58,10 @@ public class sc_rot : MonoBehaviour
             rb_shadow.AddTorque(Vector3.down * -x);
             rb_shadow.AddTorque(Vector3.right * -y);
         }
+    }
+
+    void Controlable()
+    {
+        b_control = true;
     }
 }
