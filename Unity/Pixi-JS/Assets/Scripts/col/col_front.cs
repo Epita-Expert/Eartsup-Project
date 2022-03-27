@@ -13,17 +13,21 @@ public class col_front : MonoBehaviour
         if (collided.tag == "Col_Arriere")
         { 
             print(collided.gameObject.name);
-            sc_wincondition.b_next = true;
-            Destroy(collided.gameObject);
+            sc_wincondition.b_confirm = true;
+            
         }
     }
 
-    void OnCollisionEnter(Collision collisionInfo)
+    private void OnTriggerStay(Collider other)
     {
-        if (collisionInfo.collider.tag == "Col_Arriere")
-        {
-            print("collision");
-            sc_wincondition.b_next = true;
-        }
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+       
+            print("aurevoir");
+            sc_wincondition.b_confirm = false;
+        
     }
 }

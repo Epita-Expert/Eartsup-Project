@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class sc_WinCondition : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class sc_WinCondition : MonoBehaviour
     [Space,Header("References Object")]
     public Collider col_Forward;
     public Collider col_Backward;
+
+    [Space, Header("Confirmation")]
+    public float f_confirmShadow;
+    public float f_confirmFade;
+
 
     [Space, Header("Confirm Bool")]
     public bool b_win;
@@ -33,14 +39,29 @@ public class sc_WinCondition : MonoBehaviour
 
     public AudioSource aud_vic;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public GameObject star;
+    public bool b_confirm;
+
+
 
     // Update is called once per frame
     void Update()
     {
+        if(b_confirm)
+        {
+            f_confirmShadow += Time.deltaTime;
+        }
+        else
+        {
+            f_confirmShadow = 0;
+        }
+
+        if( f_confirmShadow >= f_confirmFade)
+        {
+            b_next = true;
+            f_confirmShadow = 0;
+        }
+
 
         if(b_next)
         {
@@ -84,21 +105,29 @@ public class sc_WinCondition : MonoBehaviour
             go_robot.SetActive(true);
         }
 
+        
+    }
+
+    void reload()
+    {
+        SceneManager.LoadScene("Jonathan");
     }
    
     IEnumerator nextEnigme()
     {
+        f_confirmShadow = 0;
         i_numEnigm++;
         aud_vic.Play();
-        print(i_numEnigm);
+
         anim_manager.SetInteger("i_num", i_numEnigm);
+        b_confirm = false;
         b_next = false;
         yield return i_numEnigm;
     }
 
     IEnumerator win()
     {
-        print("FINIS");
+        star.SetActive(true);
         b_win = false;
         yield return b_win;
     }
